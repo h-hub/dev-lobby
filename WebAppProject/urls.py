@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tweetSearch/', include('tweetSearch.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('userManagement.urls')),
 ]
