@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="{% static "bootstrap.min.css" %}">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>DevLobby</title>
 </head>
 <body>
 
@@ -15,6 +15,14 @@
         <p class="lead text-muted">
             Lobby for the Developers
         </p>
+        {% if request.user.is_authenticated %}
+            <nav class="nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="/about">About</a>
+            </nav>
+        {% endif %}
+
     </div>
 
     <div class="album py-5 bg-light fill">
@@ -23,6 +31,7 @@
             {% endblock %}
         </div>
     </div>
+
 </div>
 </body>
 </html>
