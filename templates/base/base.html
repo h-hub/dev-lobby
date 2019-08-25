@@ -3,12 +3,13 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="{% static "bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "base.css" %}">
     <meta charset="UTF-8">
     <title>DevLobby</title>
 </head>
 <body>
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid h-100">
 
     <div class="container">
         <h1 class="jumbotron-heading">DevLobby</h1>
@@ -25,7 +26,7 @@
 
     </div>
 
-    <div class="album py-5 bg-light fill">
+    <div class="album py-5 bg-light fill h-100">
         <div class="container">
             {% block content %}
             {% endblock %}
