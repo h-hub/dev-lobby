@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+
 from userManagement.forms import SignUpForm
 from userManagement.models import account_activation_token
 
@@ -43,10 +44,10 @@ def activate(request, uidb64, token):
         user.profile.email_confirmed = True
         user.save()
         login(request, user)
-        return redirect('home')
+        return redirect('/')
     else:
-        return render(request, 'account_activation_invalid.html')
+        return render(request, 'registration/account_activation_invalid.html')
 
 
 def account_activation_sent(request):
-    return render(request, 'registration/signup.html')
+    return render(request, 'registration/account_activation_sent.html')
