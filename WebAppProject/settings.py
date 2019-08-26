@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'tweetSearch.apps.TweetsearchConfig',
     'userManagement.apps.UsermanagementConfig',
     'crispy_forms',
+    'social_django',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'WebAppProject.urls'
@@ -68,6 +70,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -75,6 +79,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'WebAppProject.wsgi.application'
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    #'social_core.backends.twitter.TwitterOAuth',
+    #'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_GITHUB_KEY = '20f929deefdc2b4a8601'
+SOCIAL_AUTH_GITHUB_SECRET = 'c4d014caba69b2544b800002019a84d47398277f'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -140,5 +154,6 @@ EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = 'tmp/email-messages/'
+
 
 LOGIN_REDIRECT_URL = '/'
