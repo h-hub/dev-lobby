@@ -1,0 +1,20 @@
+version: "3"
+services:
+  web:
+    build: .
+    restart: on-failure
+    env_file:
+      - ./.env
+    command: gunicorn --bind 0.0.0.0:8080 dockerizeddjango.wsgi
+    ports:
+      - "8000:8000"
+    depends_on:
+      - nginx
+  nginx:
+    image: "nginx"
+    restart: always
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./static:/static
+    ports:
+      - "80:80"

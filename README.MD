@@ -23,3 +23,11 @@
  - accounts/ reset/<uidb64>/<token>/ [name='password_reset_confirm']
  - accounts/ reset/done/ [name='password_reset_complete']
  
+Migrate DB:
+ - docker-compose -f docker-compose.prod.yml run web python manage.py migrate
+ 
+Run DEV:
+ - docker-compose -f docker-compose.yml up
+ 
+ Run PROD:
+ - in progress
