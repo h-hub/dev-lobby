@@ -112,3 +112,7 @@ media/
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+
+# env files
+.env
+.env.prod

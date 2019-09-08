@@ -5,7 +5,8 @@ services:
     restart: on-failure
     env_file:
       - ./.env
-    command: python manage.py runserver 0.0.0.0:8000
+    #command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn --bind :8000 devLobbyWebApplication.wsgi:application
     volumes:
       - .:/www
     ports:
