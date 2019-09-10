@@ -30,4 +30,4 @@ Run DEV:
  - docker-compose -f docker-compose.yml up
  
  Run PROD:
- - in progress
+ - docker-compose -f docker-compose.prod.yml up
