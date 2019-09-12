@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'blogPostManagement.apps.BlogpostmanagemetConfig',
     'crispy_forms',
     'social_django',
+    'tinymce',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -147,6 +148,9 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025

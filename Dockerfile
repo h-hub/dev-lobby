@@ -4,9 +4,10 @@ RUN apk --update add --no-cache --virtual .build-deps \
     gcc \
     libc-dev \
     linux-headers \
+    mariadb-dev \
     py-mysqldb \
     py3-gunicorn \
-    build-base \
+    build-base
 
 RUN mkdir /www
 WORKDIR /www

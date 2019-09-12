@@ -24,10 +24,11 @@
  - accounts/ reset/done/ [name='password_reset_complete']
  
 Migrate DB:
- - docker-compose -f docker-compose.prod.yml run web python manage.py migrate
+ - docker-compose -f docker-compose.yml run web python manage.py migrate/makemigrations
  
 Run DEV:
  - docker-compose -f docker-compose.yml up
+ - docker-compose -f docker-compose.yml up --build
  
  Run PROD:
  - docker-compose -f docker-compose.prod.yml up
